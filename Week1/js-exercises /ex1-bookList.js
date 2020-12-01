@@ -18,8 +18,41 @@
 
 function createBookList(books) {
   // your code goes in here, return the ul element
+  //create paragraph
+  let createUl = document.createElement('ul');
+    createUl.style.listStyle = 'none';
+    createUl.style.display = "flex";
+    createUl.style.justifyContent = "space-around";
+    createUl.style.padding = "40px";
+
+
+for(let i = 0; i< books.length; i++){
+  let createListItem = document.createElement('li');
+      createListItem.style.padding = "10px";
+      createListItem.style.margin = "10px";
+      createListItem.style.width = "33.3%"
+ 
+
+  let createParagraph = document.createElement('p');
+      createParagraph.innerText = (books[i].title + ' - ' + books[i].author);
+
+   let createImg = document.createElement('img');
+       createImg.src = "img/pic"+ (i+1)+ ".jpeg";
+
+   if(books[i].alreadyRead == true){
+      createListItem.style.background = "green";
+   }
+   else{
+      createListItem.style.background = "red";
+   }
+
+    createListItem.appendChild(createParagraph);
+    createListItem.appendChild(createImg);
+    createUl.appendChild(createListItem);
+    document.body.appendChild(createUl);
 }
 
+}
 const books = [{
     title: 'The Design of Everyday Things',
     author: 'Don Norman',
@@ -36,6 +69,7 @@ const books = [{
     alreadyRead: true
   }
 ];
+
 
 let ulElement = createBookList(books);
 

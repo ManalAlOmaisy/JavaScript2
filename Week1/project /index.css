@@ -1,0 +1,56 @@
+
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+   background-color:rgb(245, 168, 53);
+   font-size:1.5rem;
+   color:rgb(245, 168, 53);
+}
+
+#container{
+    margin:5rem auto auto;
+    background:white;
+    max-width:60%;
+    line-height:1.25rem;  
+    height:18.75rem;
+    padding:50px 20px 0px 20px;  
+}
+
+#author{
+    float:right;
+    font-size: 1.25rem;
+    margin-top: 1.8rem;
+}
+
+button{
+    color:white;
+    background-color: rgb(245, 168, 53);
+    border:none;
+    padding:10px;
+    font-size: 1.13rem;
+    outline:none;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(241, 148, 8)
+    
+}
+
+#icons{
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+    margin-top: 6.25rem;
+}
+
+
+#whiteBorder{
+    background-color: white;
+    height: 50px;
+    width:18.75rem;
+    margin:10px auto;
+}
+
