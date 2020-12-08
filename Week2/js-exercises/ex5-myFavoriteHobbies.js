@@ -8,9 +8,32 @@
  Put the list items in an unordered list
  */
 
+
+// function createHTMLList(arr) {
+//   // your code goes in here
+
+// }
+
+// const myHobbies = [
+//   'Meditation',
+//   'Reading',
+//   'Programming',
+//   'Hanging out with friends',
+//   'Going to the gym',
+// ];
+
+const ul = document.createElement('ul')
+
 function createHTMLList(arr) {
-  // your code goes in here
-}
+  let arrOutput = '';
+   arr.forEach((item) => {
+     arrOutput += `<li>${item}</li>`;
+   });
+   
+   ul.innerHTML = arrOutput;
+   document.body.appendChild(ul);
+
+  }
 
 const myHobbies = [
   'Meditation',
@@ -19,3 +42,8 @@ const myHobbies = [
   'Hanging out with friends',
   'Going to the gym',
 ];
+
+
+createHTMLList(myHobbies);
+
+

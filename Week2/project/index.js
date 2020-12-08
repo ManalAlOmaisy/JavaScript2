@@ -8,3 +8,107 @@
   If the timer finishes the timer should be replaced by the message: Time 's up!
  * 
  */
+const minutes = document.getElementById('minutes');
+const seconds = document.getElementById('seconds');
+const start = document.getElementById('start');
+const stop = document.getElementById('stop');
+const pause = document.getElementById('pause');
+const unpause = document.getElementById('unpause');
+const increment = document.getElementById('session-increment');
+const decrement = document.getElementById('session-decrement');
+const sessionNumber = document.getElementById('session-number');
+const timer = document.getElementById('timer');
+const TimesUPText = document.getElementById('timer-text');
+
+
+sessionNumber.innerText = 25;
+minutes.innerText = sessionNumber.innerText; 
+seconds.innerText = "00";
+
+// create a varaiable to set  and clear my interval
+let secondsInterval;
+
+
+// to increment the session length
+function incrementSession(){
+  sessionNumber.innerText = parseFloat(sessionNumber.innerText) + 1;
+  minutes.innerText = sessionNumber.innerText;
+}
+ 
+
+// // to decrement the session length
+function decrementSession(){
+  sessionNumber.innerText = parseFloat(sessionNumber.innerText) - 1;
+  minutes.innerText = sessionNumber.innerText;
+}
+
+
+//  this function is to be called by the start interval
+
+function timerClock(){
+
+  if(seconds.innerText <= 0){
+     seconds.innerText = 60;
+     minutes.innerText = minutes.innerText - 1;
+  }
+  else{
+     seconds.innerText = seconds.innerText - 1;
+  }
+
+  if(seconds.innerText <= 0 && minutes.innerText <= 0){
+    clearInterval(secondsInterval);
+    timer.style.display = 'none';
+    TimesUPText.style.display = 'block';
+    TimesUPText.innerText = "Time's up!";
+  }
+}
+
+// to start or play the timer
+
+function startTimer(){
+  secondsInterval = setInterval(timerClock, 1000);
+  start.style.display = 'none';
+  stop.style.display = 'block'; 
+  // to make the session length not working while the timer is on 
+  increment.disabled = true;
+  decrement.disabled = true;
+}
+
+
+// to reset  the timer and the pause button 
+
+function stopTimer(){
+  clearInterval(secondsInterval);
+  minutes.innerText = sessionNumber.innerText;
+  seconds.innerText = "00";
+  start.style.display = 'block';
+  stop.style.display = 'none';
+  unpause.style.display = 'none';
+  pause.style.display = 'block';
+  unpause.style.display = 'none';
+  pause.style.display = 'block';
+  increment.disabled = false;
+  decrement.disabled = false;
+ 
+}
+
+ // the pause and unpause buttons.
+
+ pause.addEventListener('click', function() {
+    clearInterval(secondsInterval);
+    unpause.style.display = 'block';
+    pause.style.display = 'none';
+    pause.disabled = true;
+    unpause.disabled = false;
+});
+
+unpause.addEventListener('click', function() {
+  secondsInterval = setInterval(timerClock, 1000);
+  unpause.style.display = 'none';
+  pause.style.display = 'block';
+  
+});
+ 
+
+
+

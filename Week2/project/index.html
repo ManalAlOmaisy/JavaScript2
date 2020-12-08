@@ -4,13 +4,121 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/56d3ba3dea.js" crossorigin="anonymous"></script>
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com"> 
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Space+Grotesk:wght@300&display=swap" rel="stylesheet">
   <title>Pomodoro Clock</title>
+  <style>
+    *{
+      margin:0;
+      box-sizing: border-box;
+    }
+
+    body{
+      background-color: #024e53;
+      color:white;
+      text-align: center;
+      line-height: 60px;
+      font-family: 'Space Grotesk', sans-serif;
+      padding-top: 50px;
+      font-size: 20px;
+    }
+
+    .container{
+       margin:auto;
+       width:40%;
+       
+    }
+
+    #timer, #increment{
+      display: flex;
+      justify-content: center;
+    }
+
+    #main{
+      border:5px solid rgb(6, 45, 48);
+      border-radius: 20px;
+      height: 100px;
+    }
+
+    #timer-text {
+      display: none;
+      color : red;
+
+    }
+
+    #stop{
+      display: none;
+    }
+  
+    .button{
+      background-color: #024e53;
+      border:none;
+      color:white;
+      outline: none;
+      cursor: pointer;
+      padding: 0 20px;
+      font-size: 20px;
+    }
+
+    #unpause{
+      color:grey;
+      display:none;
+    }
+
+    h4{
+      padding:0 10px;
+    }
+   
+  </style>
 </head>
 
-<body>
-  <div id="app">
+<body class="container" >
+  <h1>Pomodoro Clock</h1>
+  <h2>Session Length</h2>
 
+<!-- increment -->
+
+  <div id= "increment">
+
+  <button id = "session-increment" class="button" onclick ="incrementSession()"><i class="fas fa-arrow-up"></i></button>
+
+  <h3 id ="session-number"></h3>
+
+  <button id = "session-decrement" class="button" onclick="decrementSession()"><i class="fas fa-arrow-down"></i></button>
+
+</div>
+
+<!-- timer -->
+<div id= "main">
+  <div id="timer">
+      <div class = "row">
+         <h4 id="minutes"></h4>
+      </div>
+      <div>
+         <h3 class = "row">:</h3>
+      </div>
+      
+      <div class="row">
+         <h4 id="seconds"></h4>
+      </div>
   </div>
+
+<!-- the TImeup msg -->
+     <div id="timer-text"></div>
+</div>
+
+<!-- start and reset button -->
+
+  <div>
+
+  <button class ="button" ><i class="fas fa-play" id="start"  onclick="startTimer()"></i><i class="fas fa-stop" id="stop" onclick="stopTimer()"></i></button>
+
+  <button class ="button" ><i class="fas fa-pause" id="pause" onclick="pause()"></i><i class="fas fa-pause" id="unpause" onclick="unpause()"></i></button>
+
+ </div>
+
   <script src="index.js"></script>
 </body>
 
