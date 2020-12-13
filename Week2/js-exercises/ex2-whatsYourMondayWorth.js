@@ -14,7 +14,7 @@
 
 function dayWorth(tasks, hourlyRate) {
   // put your code in here, the function does returns a euro formatted string
-let durationTime = tasks.map(item => (item.duration * hourlyRate) / 60)
+const durationTime = tasks.map(item => (item.duration / 60) * hourlyRate)
 .reduce((total, item) => total + item,0)
 
 return `€${durationTime.toFixed(2)}`;

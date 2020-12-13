@@ -12,8 +12,8 @@ const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
 const start = document.getElementById('start');
 const stop = document.getElementById('stop');
-const pause = document.getElementById('pause');
-const unpause = document.getElementById('unpause');
+// const pause = document.getElementById('pause');
+// const unpause = document.getElementById('unpause');
 const increment = document.getElementById('session-increment');
 const decrement = document.getElementById('session-decrement');
 const sessionNumber = document.getElementById('session-number');
@@ -40,6 +40,9 @@ function incrementSession(){
 function decrementSession(){
   sessionNumber.innerText = parseFloat(sessionNumber.innerText) - 1;
   minutes.innerText = sessionNumber.innerText;
+  if(sessionNumber.innerText <= 0){
+    decrement.disabled = true;
+  }
 }
 
 
@@ -48,7 +51,7 @@ function decrementSession(){
 function timerClock(){
 
   if(seconds.innerText <= 0){
-     seconds.innerText = 60;
+     seconds.innerText = 59;
      minutes.innerText = minutes.innerText - 1;
   }
   else{
@@ -92,22 +95,23 @@ function stopTimer(){
  
 }
 
- // the pause and unpause buttons.
+ // function  pause 
 
- pause.addEventListener('click', function() {
+  function addPause(){
     clearInterval(secondsInterval);
     unpause.style.display = 'block';
     pause.style.display = 'none';
     pause.disabled = true;
     unpause.disabled = false;
-});
+};
+// function to start back 
 
-unpause.addEventListener('click', function() {
+function addUnpause(){
   secondsInterval = setInterval(timerClock, 1000);
   unpause.style.display = 'none';
   pause.style.display = 'block';
   
-});
+};
  
 
 

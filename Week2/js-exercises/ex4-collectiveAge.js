@@ -13,9 +13,9 @@ function collectiveAge(people) {
   
   const ages = people.map(age => age.age);
 
-  const addAllages = ages.reduce( (total, ages) => total + (ages /people.length), 0);
+  const compinedages = ages.reduce( (total, age) => total + (age /people.length), 0);
 
-  return addAllages;
+  return compinedages;
     
 }
 
