@@ -5,10 +5,88 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tip Calculator</title>
+
+  <style>
+
+.container{
+    width:50%;
+    margin: auto;
+    }
+
+    body{
+      background-color: rgb(94, 9, 9);
+      font-size: 30px;
+    }
+    #app{
+      background-color:rgb(26, 7, 7) ;
+      color: white;
+      padding: 20px 0;
+      border-radius: 20px 20px 0 0;
+    }
+     
+     #main{
+       background-color: white;
+       text-align: center;
+       padding:0 0 80px;
+       border-radius: 20px;
+     }
+     input, select{
+       width: 300px; 
+       height: 40px;
+       font-size: 20px;
+       border-radius: 10px;
+       padding-left: 10px;
+       outline: none;
+     }
+    
+     button{
+      width: 300px; 
+      height: 40px; 
+      background-color: rgb(167, 48, 48);
+      color:white;
+      margin-top: 40px;
+      outline: none;
+      border-radius: 10px;
+      font-size: 20px;
+     }
+     .para{
+       line-height: 2px;
+     }
+
+  </style>
 </head>
 
 <body>
-  <div id="app"></div>
+   <div id="main" class="container">
+   <div id="app"></div>
+
+   <div>
+      <p>How much was your bill?</p>
+      <span>$</span> <input type="text" id="bill">
+   </div>
+   <div>
+      <p>How much was your service?</p>
+      <select name="service" id="service">
+         <option value="30">30% -Outstanding</option>
+         <option value="20">20% -Good</option>
+         <option value="15">15% -It was Ok</option>
+         <option value="10">10% -Bad</option>
+         <option value="5">5% -Terrible</option>
+      </select>
+  </div>
+
+    <div>
+       <p>How many people are sharing the bill?</p>
+       <input type="text" id="people">
+    </div>
+
+     <button onclick="tipCalc()">CALCULATE!</button>
+     <p class="para">Tip Amount</p>
+     <p id="tip-amount" class="para"></p>
+     <p id="each-text" class="para"></p>
+  </div>
+  
+  
   <script src="index.js"></script>
 </body>
 

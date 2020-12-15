@@ -17,5 +17,6 @@ const x = (function () {
     alert(a);
   };
 })();
+x()
 
-x();
+// This code will return or display alert message (12) on the window. We can see that (let a = 10) is set as a global variable while inside the function the variable (a) is re-assigned to a new value(12) inside the same memory block not declared as a new variable inside the local block. And this reassigning will affect and apply on the global variable. so the new value for (a) will be changed to (12). and the window will alert the number 12.

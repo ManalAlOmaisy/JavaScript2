@@ -14,6 +14,7 @@
  * @param {Array} array your solution
  * @returns boolean
  */
+
 function checkSolution(array) {
   const solution = ['a', 'b', 'c', 'd', 'e', 'f'];
   if (array == null) return false;
@@ -28,8 +29,17 @@ function checkSolution(array) {
 // WRITE YOUR FUNCTION HERE
 
 const letters = ['a', 'b', 'c', 'd', 'a', 'e', 'f', 'c', 'b'];
-removeDuplicates(letters);
 
-if (checkSolution(letters)) {
+function removeDuplicates(array){
+
+  const removeArray= array.filter((num, index) => array.indexOf(num) === index);
+  return removeArray;
+
+}
+
+
+const filteredLetters = removeDuplicates(letters);
+
+if (checkSolution(filteredLetters)) {
   console.log("Hooray!");
 }
